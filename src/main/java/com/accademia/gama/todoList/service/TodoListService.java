@@ -36,17 +36,15 @@ public class TodoListService {
         return todoListUpdated;
     }
 
-    public List<TodoList> getAllTodoListCompleted() {
-        List<TodoList> listsTodoList = (List<TodoList>) repository.findAll();
-        listsTodoList.removeIf(list -> !list.isComplete());
-        return listsTodoList;
+    public List<TodoList> getAllTodoListIsCompleted(boolean todoListIsCompleted) {
+        return repository.findAllByComplete(todoListIsCompleted);
     }
 
-    public List<TodoList> getAllTodoListIsNotCompleted() {
+    /*public List<TodoList> getAllTodoListIsNotCompleted() {
         List<TodoList> listsTodoList = (List<TodoList>) repository.findAll();
         listsTodoList.removeIf(TodoList::isComplete);
         return listsTodoList;
-    }
+    }*/
 
     public Object getTodoListByIdDescription(int todoListId) {
         TodoList todoList = repository.findById(todoListId).orElse(new TodoList());

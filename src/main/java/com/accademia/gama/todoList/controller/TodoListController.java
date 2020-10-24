@@ -41,12 +41,12 @@ public class TodoListController {
 
     @GetMapping("/todoListComplete")
     public ResponseEntity<List<TodoList>> getAllTodoListCompleted() {
-        return ResponseEntity.ok(service.getAllTodoListCompleted());
+        return ResponseEntity.ok(service.getAllTodoListIsCompleted(true));
     }
 
     @GetMapping("/todoListIsNotComplete")
     public ResponseEntity<List<TodoList>> getAllTodoListIsNotCompleted() {
-        return ResponseEntity.ok(service.getAllTodoListIsNotCompleted());
+        return ResponseEntity.ok(service.getAllTodoListIsCompleted(false));
     }
 
     @GetMapping("/{todoListId}/description")

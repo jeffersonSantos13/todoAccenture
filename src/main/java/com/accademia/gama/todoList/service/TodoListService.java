@@ -26,4 +26,8 @@ public class TodoListService {
         return repository.findById(todoListId)
                 .orElseThrow();
     }
+
+   public TodoList updateTodoList(TodoList todoList) {
+        return repository.save(todoList);
+   }
 }

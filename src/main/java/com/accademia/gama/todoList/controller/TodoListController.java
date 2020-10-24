@@ -33,4 +33,10 @@ public class TodoListController {
         return ResponseEntity.ok(service.getTodoListById(todoListId));
     }
 
+    @PutMapping
+    public ResponseEntity<TodoList> updateTodoList(@PathVariable int todoListId, @RequestBody TodoList todoList) {
+        TodoList saveTodoList = service.saveTodoList(todoList);
+
+        return ResponseEntity.ok(service.getTodoListById(todoListId));
+    }
 }
